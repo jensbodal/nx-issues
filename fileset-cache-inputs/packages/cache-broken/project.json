@@ -1,0 +1,52 @@
+{
+  "name": "cache-broken",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/cache-broken/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cache-broken",
+        "main": "packages/cache-broken/src/index.ts",
+        "tsConfig": "packages/cache-broken/tsconfig.lib.json",
+        "assets": ["packages/cache-broken/*.md"]
+      }
+    },
+    "example-broken": {
+      "executor": "nx:run-commands",
+      "inputs": ["{workspaceRoot}/cache-file-input"],
+      "options": {
+        "commands": ["cat cache-file-input"]
+      }
+    },
+    "example-works": {
+      "executor": "nx:run-commands",
+      "inputs": [
+        {
+          "runtime": "cat cache-file-input"
+        }
+      ],
+      "options": {
+        "commands": ["cat cache-file-input"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cache-broken/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/packages/cache-broken"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/cache-broken"
+      }
+    }
+  },
+  "tags": []
+}
