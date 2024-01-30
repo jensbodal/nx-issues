@@ -1,0 +1,15 @@
+{
+  "name": "nx-issues",
+  "version": "1.0.0",
+  "description": "contains issue reproductions for nx library",
+  "main": "index.js",
+  "scripts": {
+    "create:issue": "cd `dirname $npm_package_json` && ./scripts/create-issue"
+  },
+  "author": "jensbodal@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "create-nx-workspace": "^17.3.0",
+    "nx": "^17.3.0"
+  }
+}

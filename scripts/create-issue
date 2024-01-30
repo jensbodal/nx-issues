@@ -1,0 +1,23 @@
+#!/bin/bash
+
+main() {
+  if [ $# -ne 1 ]; then
+    echo "You must provide an issue name"
+    return 1
+  fi
+
+  local issue="$1"
+
+  echo "Creating new issue for \"$issue\""
+
+  cd issues && npx create-nx-workspace@latest \
+      --nxCloud=skip \
+      --preset=ts \
+      --workspaceType=package-based \
+      --bundler=vite \
+      --skipGit \
+      --packageManager=pnpm \
+      --name=$issue
+}
+
+main "$@"
