@@ -59,8 +59,7 @@
         "reportsDirectory": "../coverage/react"
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint"
+    "lint-this-needs-to-be-defined": {
     }
   },
   "tags": []
